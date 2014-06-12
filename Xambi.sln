@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{B19271AF-12DB-4A62-BDF0-5F2A9F5B8C80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{05CCF168-27ED-4256-9882-47CFC8AC328A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xambi.Client.Android.Ui", "Ui\Android\Xambi.Client.Android.Ui.csproj", "{63E22047-229D-40A6-A212-DD4445318B98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbi.Core.Dto", "Core\Dto\Symbi.Core.Dto.csproj", "{76443CB7-DC7B-4630-9FFC-8DCB090B39C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{866DA9FC-86F2-457C-9BC1-EAFEDFEDC12C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{8AA94D8C-DC7D-436E-A139-CA21C4C7E4EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbi.Core.Text", "Core\Text\Symbi.Core.Text\Symbi.Core.Text.csproj", "{E49ECB73-E232-48B1-B4CB-D8BBB2836208}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63E22047-229D-40A6-A212-DD4445318B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E22047-229D-40A6-A212-DD4445318B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E22047-229D-40A6-A212-DD4445318B98}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{63E22047-229D-40A6-A212-DD4445318B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E22047-229D-40A6-A212-DD4445318B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63E22047-229D-40A6-A212-DD4445318B98}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{76443CB7-DC7B-4630-9FFC-8DCB090B39C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76443CB7-DC7B-4630-9FFC-8DCB090B39C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76443CB7-DC7B-4630-9FFC-8DCB090B39C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76443CB7-DC7B-4630-9FFC-8DCB090B39C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B19271AF-12DB-4A62-BDF0-5F2A9F5B8C80} = {866DA9FC-86F2-457C-9BC1-EAFEDFEDC12C}
+		{63E22047-229D-40A6-A212-DD4445318B98} = {B19271AF-12DB-4A62-BDF0-5F2A9F5B8C80}
+		{76443CB7-DC7B-4630-9FFC-8DCB090B39C9} = {05CCF168-27ED-4256-9882-47CFC8AC328A}
+		{E49ECB73-E232-48B1-B4CB-D8BBB2836208} = {05CCF168-27ED-4256-9882-47CFC8AC328A}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Symbi.UI.Android.csproj
+	EndGlobalSection
+EndGlobal

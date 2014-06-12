@@ -168,6 +168,7 @@ App_Data/*.ldf
 #############
 ## Windows detritus
 #############
+packages
 
 # Windows image file caches
 Thumbs.db

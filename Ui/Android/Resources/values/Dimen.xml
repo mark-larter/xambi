@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+	
+	<!--  Default font size -->
+	<dimen name="textSize_default">16dp</dimen>
+	
+</resources>
