@@ -58,7 +58,7 @@ namespace Xambi.Client.Android.Ui
 					.ContinueWith(async t =>
 					{
 						var response = t.Result;
-						if (response.IsSuccessStatusCode)
+						if (response != null && response.IsSuccessStatusCode)
 						{
 							string json = await response.Content.ReadAsStringAsync();
 							IspDto dto = JsonConvert.DeserializeObject<IspDto>(json);
@@ -66,6 +66,16 @@ namespace Xambi.Client.Android.Ui
 							{
 								TextIsp.Text = dto.isp;
 							});
+						}
+					});
+
+				GetNetworks()
+					.ContinueWith(async t =>
+					{
+						var response = t.Result;
+						if (response != null && response.IsSuccessStatusCode)
+						{
+							string json = await response.Content.ReadAsStringAsync();
 						}
 					});
 			};
@@ -100,6 +110,14 @@ namespace Xambi.Client.Android.Ui
 		{
 			var client = new HttpClient();
 			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://ip-api.com/json/");
+			var response = await client.SendAsync(request);
+			return response;
+		}
+
+		private async Task<HttpResponseMessage> GetNetworks()
+		{
+			var client = new HttpClient();
+			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://api-ss.symbi.ml/networks/1,2,5");
 			var response = await client.SendAsync(request);
 			return response;
 		}		

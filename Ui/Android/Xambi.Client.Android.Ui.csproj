@@ -94,7 +94,9 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\icon_symbi.png" />
-    <AndroidResource Include="Resources\values\Dimen.xml" />
+    <AndroidResource Include="Resources\values\Dimen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">
