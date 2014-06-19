@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Click Me</string>
 	<string name="app_name">xambi-android</string>
+
+	<string name="getIsp">Get ISP</string>
+	<string name="getNetworks">Get Networks</string>
 </resources>

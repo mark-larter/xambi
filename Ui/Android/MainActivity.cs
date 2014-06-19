@@ -13,8 +13,10 @@ using Symbi.Core.Dto;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Symbi.Core.DTO;
+using System.Text;
 
 namespace Xambi.Client.Android.Ui
 {
@@ -49,11 +51,9 @@ namespace Xambi.Client.Android.Ui
             EditNickname = FindViewById<EditText>(Resource.Id.editNickname);
 			TextIsp = FindViewById<TextView>(Resource.Id.textIsp);
 
-			Button button = FindViewById<Button>(Resource.Id.buttonTest);
+			Button button = FindViewById<Button>(Resource.Id.buttonGetIsp);
 			button.Click += delegate {
-				button.Text = String.Format("Wow {0} clicks!", ++ClickCount);
-
-				// Check ISP.
+				// Get ISP.
 				GetIsp()
 					.ContinueWith(async t =>
 					{
@@ -68,11 +68,16 @@ namespace Xambi.Client.Android.Ui
 							});
 						}
 					});
+			};
 
+			button = FindViewById<Button>(Resource.Id.buttonGetNetworks);
+			button.Click += delegate
+			{
+				// Get networks.
 				GetNetworks()
-					.ContinueWith(async t =>
+					.ContinueWith(async n =>
 					{
-						var response = t.Result;
+						var response = n.Result;
 						if (response != null && response.IsSuccessStatusCode)
 						{
 							string json = await response.Content.ReadAsStringAsync();
@@ -109,17 +114,17 @@ namespace Xambi.Client.Android.Ui
 		private async Task<HttpResponseMessage> GetIsp()
 		{
 			var client = new HttpClient();
-			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://ip-api.com/json/");
-			var response = await client.SendAsync(request);
-			return response;
+			client.DefaultRequestHeaders.Add("Accept", "application/json");
+			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://ip-api.com/json");
+			return await client.SendAsync(request);
 		}
 
 		private async Task<HttpResponseMessage> GetNetworks()
 		{
 			var client = new HttpClient();
-			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://api-ss.symbi.ml/networks/1,2,5");
-			var response = await client.SendAsync(request);
-			return response;
+			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.254.54.184/networks");
+			request.Content = new StringContent(String.Empty, Encoding.UTF8, "application/json");
+			return await client.SendAsync(request);
 		}		
 
 		#endregion Private
