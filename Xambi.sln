@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbi.Core.Text", "Core\Tex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{8EC1C82A-22EB-48CE-80CB-1FC2E334D5E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xambi.Client.Core", "Xambi.Client.Core\Xambi.Client.Core.csproj", "{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -151,6 +153,38 @@ Global
 		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E49ECB73-E232-48B1-B4CB-D8BBB2836208}.Release|x86.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|ARM.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|Mixed Platforms.Build.0 = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Ad-Hoc|x86.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|Mixed Platforms.Build.0 = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +195,7 @@ Global
 		{76443CB7-DC7B-4630-9FFC-8DCB090B39C9} = {05CCF168-27ED-4256-9882-47CFC8AC328A}
 		{E49ECB73-E232-48B1-B4CB-D8BBB2836208} = {05CCF168-27ED-4256-9882-47CFC8AC328A}
 		{8EC1C82A-22EB-48CE-80CB-1FC2E334D5E3} = {866DA9FC-86F2-457C-9BC1-EAFEDFEDC12C}
+		{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6} = {866DA9FC-86F2-457C-9BC1-EAFEDFEDC12C}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Symbi.UI.Android.csproj

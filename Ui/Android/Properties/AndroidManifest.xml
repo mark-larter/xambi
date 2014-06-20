@@ -2,4 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.xambi.client.android.ui" android:installLocation="auto">
 	<uses-sdk />
 	<application android:icon="@drawable/icon_symbi" android:label="Xambi"></application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

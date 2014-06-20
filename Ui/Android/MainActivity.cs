@@ -1,22 +1,19 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-
+using Android.Widget;
 using Auth0.SDK;
-
-using Symbi.Core.Dto;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Symbi.Core.Dto.Auth;
+using Symbi.Core.Dto.Network;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Symbi.Core.DTO;
 using System.Text;
+using System.Threading.Tasks;
+using Xambi.Client.Core;
+using Net = Android.Net;
 
 namespace Xambi.Client.Android.Ui
 {
@@ -30,10 +27,39 @@ namespace Xambi.Client.Android.Ui
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-            InitView();
+
+			// Setup connectivity monitoring.
+			cm = new ConnectivityMonitor();
+
+			InitView();
 
 			// Check authentication.
-			Authenticate();
+			if (User == null)
+				Authenticate();
+		}
+
+		protected override void OnResume()
+		{
+			base.OnResume();
+
+			// Resume connectivity monitoring.
+			cbr = new ConnectivityBroadcastReceiver();
+			cbr.ConnectionStatusChanged += OnConnectivityStateChange;
+			RegisterReceiver(cbr, new IntentFilter(Net.ConnectivityManager.ConnectivityAction));
+
+			GetIsp();
+		}
+
+		protected override void OnPause()
+		{
+			if (cbr != null)
+			{
+				UnregisterReceiver(cbr);
+				cbr.ConnectionStatusChanged -= OnConnectivityStateChange;
+				cbr = null;
+			}
+
+			base.OnPause();
 		}
 
 		#endregion Event Handlers
@@ -50,40 +76,24 @@ namespace Xambi.Client.Android.Ui
             TextUsername = FindViewById<TextView>(Resource.Id.textUsername);
             EditNickname = FindViewById<EditText>(Resource.Id.editNickname);
 			TextIsp = FindViewById<TextView>(Resource.Id.textIsp);
+			TextNetworks = FindViewById<TextView>(Resource.Id.textNetworks);
 
-			Button button = FindViewById<Button>(Resource.Id.buttonGetIsp);
-			button.Click += delegate {
-				// Get ISP.
-				GetIsp()
-					.ContinueWith(async t =>
-					{
-						var response = t.Result;
-						if (response != null && response.IsSuccessStatusCode)
-						{
-							string json = await response.Content.ReadAsStringAsync();
-							IspDto dto = JsonConvert.DeserializeObject<IspDto>(json);
-							RunOnUiThread(() =>
-							{
-								TextIsp.Text = dto.isp;
-							});
-						}
-					});
-			};
-
-			button = FindViewById<Button>(Resource.Id.buttonGetNetworks);
+			Button button = FindViewById<Button>(Resource.Id.buttonGetNetworks);
 			button.Click += delegate
 			{
 				// Get networks.
-				GetNetworks()
-					.ContinueWith(async n =>
-					{
-						var response = n.Result;
-						if (response != null && response.IsSuccessStatusCode)
-						{
-							string json = await response.Content.ReadAsStringAsync();
-						}
-					});
+				GetNetworks();
 			};
+		}
+
+		private void OnConnectivityStateChange(object sender, EventArgs e)
+		{
+			ConnectivityType state = cm.State;
+			cm.CheckConnectivity();
+			if (state != cm.State)
+			{
+				GetIsp();
+			}
 		}
 
 		private void Authenticate()
@@ -111,20 +121,60 @@ namespace Xambi.Client.Android.Ui
 				});
 		}
 
-		private async Task<HttpResponseMessage> GetIsp()
+		private async void GetIsp()
 		{
-			var client = new HttpClient();
-			client.DefaultRequestHeaders.Add("Accept", "application/json");
-			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://ip-api.com/json");
-			return await client.SendAsync(request);
+			ConnectivityType ct = cm.State;
+			if (ct == ConnectivityType.Data || ct == ConnectivityType.Wifi)
+			{
+				var client = new HttpClient();
+				client.DefaultRequestHeaders.Add("Accept", "application/json");
+				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://ip-api.com/json");
+				var response = await client.SendAsync(request);
+				if (response != null && response.IsSuccessStatusCode)
+				{
+					string json = await response.Content.ReadAsStringAsync();
+					IspDto dto = JsonConvert.DeserializeObject<IspDto>(json);
+					RunOnUiThread(() =>
+					{
+						TextIsp.Text = dto.isp;
+					});
+				}
+			}
 		}
 
-		private async Task<HttpResponseMessage> GetNetworks()
+		private async void GetNetworks()
 		{
-			var client = new HttpClient();
-			HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.254.54.184/networks");
-			request.Content = new StringContent(String.Empty, Encoding.UTF8, "application/json");
-			return await client.SendAsync(request);
+			ConnectivityType ct = cm.State;
+			if (ct == ConnectivityType.Data || ct == ConnectivityType.Wifi)
+			{
+				var client = new HttpClient();
+				client.DefaultRequestHeaders.Add("Accept", "application/json");
+				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.254.54.184/networks");
+				var response = await client.SendAsync(request);
+				if (response != null && response.IsSuccessStatusCode)
+				{
+					string json = await response.Content.ReadAsStringAsync();
+					List<NetworkDto> dtoList = JsonConvert.DeserializeObject<List<NetworkDto>>(json);
+					if (dtoList != null)
+					{
+						RunOnUiThread(() =>
+						{
+							int networkIndex = 0;
+							StringBuilder networks = new StringBuilder();
+							dtoList.ForEach(l =>
+							{
+								if (networkIndex > 0)
+								{
+									networks.AppendLine();
+								}
+								++networkIndex;
+								networks.Append(l.FriendlyName);
+							});
+							TextNetworks.Text = networks.ToString();
+						});
+					}
+				}
+			}
 		}		
 
 		#endregion Private
@@ -133,7 +183,8 @@ namespace Xambi.Client.Android.Ui
 
 		#region Properties
 
-		int ClickCount = 0;
+		private IConnectivityMonitor cm;
+		private ConnectivityBroadcastReceiver cbr;
 
 		Auth0User User;
 
@@ -143,8 +194,9 @@ namespace Xambi.Client.Android.Ui
 
 		ProgressDialog ProgressDialog;
         TextView TextUsername;
-		TextView TextIsp;
 		EditText EditNickname;
+		TextView TextIsp;
+		TextView TextNetworks;
 
 		#endregion Properties
 	}

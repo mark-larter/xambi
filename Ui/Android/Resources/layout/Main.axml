@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="3dp"
-                android:text="Nickname" />
+                android:text="@string/labelNickname" />
             <EditText
                 android:id="@+id/editNickname"
                 android:inputType="textPersonName"
@@ -37,26 +37,27 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/buttonGetIsp"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/getIsp" />
-            <Button
-                android:id="@+id/buttonGetNetworks"
+                android:layout_marginRight="3dp"
+                android:text="@string/labelIsp" />
+            <TextView
+                android:id="@+id/textIsp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/getNetworks" />
+                android:textSize="@dimen/textSize_default" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/textIsp"
+        <Button
+            android:id="@+id/buttonGetNetworks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize_default" />
+            android:text="@string/getNetworks" />
         <TextView
             android:id="@+id/textNetworks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize_default" />
+            android:textSize="@dimen/textSize_default"
+            android:singleLine="false" />
     </LinearLayout>
 </ScrollView>

@@ -80,20 +80,17 @@ namespace Xambi.Client.Android.Ui
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070002
-			public const int buttonGetIsp = 2131165186;
-			
 			// aapt resource value: 0x7f070003
 			public const int buttonGetNetworks = 2131165187;
 			
 			// aapt resource value: 0x7f070001
 			public const int editNickname = 2131165185;
 			
-			// aapt resource value: 0x7f070004
-			public const int textIsp = 2131165188;
+			// aapt resource value: 0x7f070002
+			public const int textIsp = 2131165186;
 			
-			// aapt resource value: 0x7f070005
-			public const int textNetworks = 2131165189;
+			// aapt resource value: 0x7f070004
+			public const int textNetworks = 2131165188;
 			
 			// aapt resource value: 0x7f070000
 			public const int textUsername = 2131165184;
@@ -135,6 +132,12 @@ namespace Xambi.Client.Android.Ui
 			
 			// aapt resource value: 0x7f040003
 			public const int getNetworks = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int labelIsp = 2130968580;
+			
+			// aapt resource value: 0x7f040005
+			public const int labelNickname = 2130968581;
 			
 			// aapt resource value: 0x7f040000
 			public const int library_name = 2130968576;

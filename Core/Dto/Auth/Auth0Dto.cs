@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Symbi.Core.Dto
+namespace Symbi.Core.Dto.Auth
 {
 	public class Auth0Identity
 	{

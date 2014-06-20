@@ -4,4 +4,7 @@
 
 	<string name="getIsp">Get ISP</string>
 	<string name="getNetworks">Get Networks</string>
+
+	<string name="labelIsp">ISP:</string>
+	<string name="labelNickname">Nickname:</string>
 </resources>
