@@ -27,11 +27,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="3dp"
                 android:text="@string/labelNickname" />
-            <EditText
-                android:id="@+id/editNickname"
-                android:inputType="textPersonName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_default" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"

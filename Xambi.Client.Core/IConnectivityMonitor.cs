@@ -17,6 +17,8 @@ namespace Xambi.Client.Core
 
 		ConnectivityType State { get; }
 
+		string NetworkSsid { get; }
+
 		#endregion Properties
 	}
 }

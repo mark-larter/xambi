@@ -74,7 +74,7 @@ namespace Xambi.Client.Android.Ui
 			this.ProgressDialog.SetMessage("Loading...");
 
             TextUsername = FindViewById<TextView>(Resource.Id.textUsername);
-            EditNickname = FindViewById<EditText>(Resource.Id.editNickname);
+			TextNickname = FindViewById<TextView>(Resource.Id.textNickname);
 			TextIsp = FindViewById<TextView>(Resource.Id.textIsp);
 			TextNetworks = FindViewById<TextView>(Resource.Id.textNetworks);
 
@@ -82,6 +82,7 @@ namespace Xambi.Client.Android.Ui
 			button.Click += delegate
 			{
 				// Get networks.
+				TextNetworks.Text = null;
 				GetNetworks();
 			};
 		}
@@ -115,7 +116,7 @@ namespace Xambi.Client.Android.Ui
 						RunOnUiThread(() =>
 						{
 							TextUsername.Text = Profile.Email;
-							EditNickname.Text = Profile.Given_name;
+							TextNickname.Text = Profile.Given_name;
 						});
 					}
 				});
@@ -160,6 +161,7 @@ namespace Xambi.Client.Android.Ui
 						RunOnUiThread(() =>
 						{
 							int networkIndex = 0;
+							bool ssidMatched = false;
 							StringBuilder networks = new StringBuilder();
 							dtoList.ForEach(l =>
 							{
@@ -167,9 +169,23 @@ namespace Xambi.Client.Android.Ui
 								{
 									networks.AppendLine();
 								}
+
 								++networkIndex;
 								networks.Append(l.FriendlyName);
+								if (!ssidMatched)
+								{
+									string ssid = l.NetworkSsid;
+									if (ssid != null)
+									{
+										if (ssid.Equals(cm.NetworkSsid, StringComparison.OrdinalIgnoreCase))
+										{
+											ssidMatched = true;
+											networks.Append(" *");
+										}
+									}
+								}
 							});
+
 							TextNetworks.Text = networks.ToString();
 						});
 					}
@@ -194,7 +210,7 @@ namespace Xambi.Client.Android.Ui
 
 		ProgressDialog ProgressDialog;
         TextView TextUsername;
-		EditText EditNickname;
+		TextView TextNickname;
 		TextView TextIsp;
 		TextView TextNetworks;
 

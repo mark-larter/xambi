@@ -14,6 +14,8 @@ namespace Symbi.Core.Dto.Network
 
         public string FriendlyName { get; set; }
 
+		public string NetworkSsid { get; set; }
+
         public List<DeviceDto> DeviceList { get; set; }
 
         #endregion Properties
