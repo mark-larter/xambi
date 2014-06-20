@@ -111,7 +111,7 @@
       <Project>{76443cb7-dc7b-4630-9ffc-8dcb090b39c9}</Project>
       <Name>Symbi.Core.Dto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Xambi.Client.Core\Xambi.Client.Core.csproj">
+    <ProjectReference Include="..\Core\Xambi.Client.Core.csproj">
       <Project>{11bcc96c-1bf2-4f4a-8fad-9a118590eda6}</Project>
       <Name>Xambi.Client.Core</Name>
     </ProjectReference>

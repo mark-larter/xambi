@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{B192
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{05CCF168-27ED-4256-9882-47CFC8AC328A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xambi.Client.Android.Ui", "Ui\Android\Xambi.Client.Android.Ui.csproj", "{63E22047-229D-40A6-A212-DD4445318B98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xambi.Client.Android", "Client\Android\Xambi.Client.Android.csproj", "{63E22047-229D-40A6-A212-DD4445318B98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbi.Core.Dto", "Core\Dto\Symbi.Core.Dto.csproj", "{76443CB7-DC7B-4630-9FFC-8DCB090B39C9}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Symbi.Core.Text", "Core\Tex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows", "Windows", "{8EC1C82A-22EB-48CE-80CB-1FC2E334D5E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xambi.Client.Core", "Xambi.Client.Core\Xambi.Client.Core.csproj", "{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xambi.Client.Core", "Client\Core\Xambi.Client.Core.csproj", "{11BCC96C-1BF2-4F4A-8FAD-9A118590EDA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

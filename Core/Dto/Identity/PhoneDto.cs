@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Symbi.Core.DTO.Identity
+namespace Symbi.Core.Dto.Identity
 {
     #region Properties
 
