@@ -34,6 +34,7 @@
     <Compile Include="Identity\GroupDto.cs" />
     <Compile Include="Identity\PhoneDto.cs" />
     <Compile Include="Identity\UserDto.cs" />
+    <Compile Include="Location\IpLocationDto.cs" />
     <Compile Include="Network\DeviceDto.cs" />
     <Compile Include="Network\IspDto.cs" />
     <Compile Include="Network\NetworkDto.cs" />
