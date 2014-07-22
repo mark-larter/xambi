@@ -129,15 +129,15 @@ namespace Xambi.Client.Android.Ui
 			{
 				var client = new HttpClient();
 				client.DefaultRequestHeaders.Add("Accept", "application/json");
-				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://ip-api.com/json");
+				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://dev.socsuite.com/api-ss/netLocation/");
 				var response = await client.SendAsync(request);
 				if (response != null && response.IsSuccessStatusCode)
 				{
 					string json = await response.Content.ReadAsStringAsync();
-					IspDto dto = JsonConvert.DeserializeObject<IspDto>(json);
+					NetworkLocationDto dto = JsonConvert.DeserializeObject<NetworkLocationDto>(json);
 					RunOnUiThread(() =>
 					{
-						TextIsp.Text = dto.isp;
+						TextIsp.Text = dto.Isp;
 					});
 				}
 			}
@@ -150,7 +150,7 @@ namespace Xambi.Client.Android.Ui
 			{
 				var client = new HttpClient();
 				client.DefaultRequestHeaders.Add("Accept", "application/json");
-				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://10.254.54.184/networks");
+				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://dev.socsuite.com/api-ss/networks/");
 				var response = await client.SendAsync(request);
 				if (response != null && response.IsSuccessStatusCode)
 				{

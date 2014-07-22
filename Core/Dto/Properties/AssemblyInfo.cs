@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle ("Symbi.Core.Dto")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription ("Symbi data transfer interfaces.")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
+[assembly: AssemblyCompany ("Troppus Software, an EchoStar corporation")]
 [assembly: AssemblyProduct ("")]
 [assembly: AssemblyCopyright ("mlarter")]
-[assembly: AssemblyTrademark ("")]
+[assembly: AssemblyTrademark("© 2014 Troppus Software, an EchoStar corporation")]
 [assembly: AssemblyCulture ("")]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
