@@ -156,37 +156,37 @@ namespace Xambi.Client.Android.Ui
 				{
 					string json = await response.Content.ReadAsStringAsync();
 					List<NetworkDto> dtoList = JsonConvert.DeserializeObject<List<NetworkDto>>(json);
-					if (dtoList != null)
-					{
-						RunOnUiThread(() =>
-						{
+					if (dtoList != null) {
+						RunOnUiThread (() => {
 							int networkIndex = 0;
 							bool ssidMatched = false;
-							StringBuilder networks = new StringBuilder();
-							dtoList.ForEach(l =>
-							{
+							string ssid;
+							StringBuilder networks = new StringBuilder ();
+							dtoList.ForEach (l => {
 								if (networkIndex > 0)
 								{
-									networks.AppendLine();
+									networks.AppendLine ();
 								}
 
 								++networkIndex;
-								networks.Append(l.FriendlyName);
-								if (!ssidMatched)
+								ssid = l.NetworkSsid;
+								if (ssid == null)
 								{
-									string ssid = l.NetworkSsid;
-									if (ssid != null)
-									{
-										if (ssid.Equals(cm.NetworkSsid, StringComparison.OrdinalIgnoreCase))
-										{
+									networks.Append(l.FriendlyName);
+								} 
+								else
+								{
+									networks.AppendFormat ("{0} ({1})", l.FriendlyName, ssid);
+									if (!ssidMatched) {
+										if (ssid.Equals(cm.NetworkSsid, StringComparison.OrdinalIgnoreCase)) {
 											ssidMatched = true;
-											networks.Append(" *");
+											networks.Append(" ***");
 										}
 									}
 								}
 							});
 
-							TextNetworks.Text = networks.ToString();
+							TextNetworks.Text = networks.ToString ();
 						});
 					}
 				}
