@@ -66,8 +66,8 @@
     <Reference Include="Xamarin.Auth.Android">
       <HintPath>..\..\Components\Auth0Client-0.2\lib\android\Xamarin.Auth.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Symbi.Core.DTO">
-      <HintPath>..\..\packages\Symbi.Core.DTO.1.0.5315.12749\lib\portable-net45+win+wp80+MonoAndroid10+MonoTouch10\Symbi.Core.DTO.dll</HintPath>
+    <Reference Include="Symbi.Dto">
+      <HintPath>..\..\packages\Symbi.Dto.0.1.0\lib\portable-net45+win+wp80+MonoAndroid10+MonoTouch10\Symbi.Dto.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
